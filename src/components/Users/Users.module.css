@@ -1,0 +1,50 @@
+.usersWrapper img{
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+    object-fit: cover;
+
+}
+.usersWrapper > div{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
+    background: lightgray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    align-items: center;
+    width: 70%;
+}
+.active{
+    color: red;
+}
+.left{
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.right{
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.activePage{
+    font-weight: 700;
+}
+span{
+    color: #000;
+    display: inline-block;
+
+}
+.pageNumbers span{
+    cursor: pointer;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.loading{
+width: 100px;
+}
