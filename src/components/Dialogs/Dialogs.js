@@ -40,7 +40,7 @@ const DialogItem = (props) => {
 
     let path = '/dialogs/' + props.id;
     return (
-        // <Route path='/news' render={() => <NewsContainer/>}/>
+
         <NavLink to={path} className={s.dialog} activeClassName={s.active}>{props.name}</NavLink>
 
     )

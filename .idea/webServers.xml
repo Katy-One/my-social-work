@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e91179bf-3d31-4fc8-981b-7f767a526b7a" name="test" url="http://it-hive.net">
+        <fileTransfer host="it-hive.net" port="2121" rootFolder="/test.it-hive.net/react-practic-Katy">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="2121" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

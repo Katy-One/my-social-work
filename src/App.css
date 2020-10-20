@@ -15,3 +15,13 @@
 body{
   background: red;
 }
+
+.news-item{
+  border: 2px solid yellow;
+  margin-bottom: 10px;
+}
+
+.active.news-item{
+  border: 2px solid rebeccapurple;
+
+}

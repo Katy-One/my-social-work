@@ -5,7 +5,7 @@ import './index.css';
 import store from './redux/redux-store'
 import App from './App';
 import {Provider} from "react-redux";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter} from "react-router-dom";
 //
 // let renderEntireTree = (state) => {
 //
@@ -13,7 +13,7 @@ import {BrowserRouter} from "react-router-dom";
 //
 // }
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
 
             <App  />
@@ -35,4 +35,4 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-window.store = store
+

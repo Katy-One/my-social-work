@@ -1,4 +1,5 @@
 const addnews = 'addnews'
+const ACTIVE = 'ACTIVE'
 let initialState = {
     allNews: [
         {
@@ -22,7 +23,8 @@ let initialState = {
             author: 'Jack',
             newsState: false
         }
-    ]
+    ],
+    active: 0
 }
 
 
@@ -33,10 +35,17 @@ const newsReducer = (state = initialState, action) => {
             let arr = state.allNews.filter((user) => {
                 return user.id !== userForRemoveId;
             })
-            debugger
+
             return {
                 ...state,
                 allNews: arr
+
+            }
+        case ACTIVE:
+
+            return {
+                ...state,
+                active: action.active
 
             }
 
@@ -51,6 +60,13 @@ export const addNewsActionCreator = (id) => {
     return {
         type: addnews,
         id: id
+    }
+};
+export const addActive = (id) => {
+
+    return {
+        type: ACTIVE,
+        active: id
     }
 };
 

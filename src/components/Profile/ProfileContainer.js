@@ -44,9 +44,9 @@ class ProfileContainer extends React.Component {
     render() {
 
         {
-            if (this.props.isAuth === false && this.props.location.pathname === '/profile') {
-                return <Redirect to={'/login'}/>
-            }
+            // if (this.props.isAuth === false && this.props.location.pathname === '/profile') {
+            //     return <Redirect to={'/login'}/>
+            // }
         }
         return <>
 
@@ -55,7 +55,7 @@ class ProfileContainer extends React.Component {
                          status={this.props.status} getUsersProfile={this.props.getUsersProfile}
                          updateStatus={this.props.updateStatus}
                          ownerId={!this.props.match.params.userId}
-                         id={this.props.match.params.userId}
+                         id={this.props.match.params.userId }
                          saveProfile={this.props.saveProfile}/>
             </div>
 
@@ -70,7 +70,7 @@ let mapStateToProps = (state) => ({
     status: state.profilePage.status,
     authorizedUserId: state.auth.userId,
     isAuth: state.auth.isAuth,
-    photo: state.profilePage.photo
+    // photo: state.profilePage.photo
 })
 export default compose(connect(mapStateToProps, {
     getUsersProfile,

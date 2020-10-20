@@ -4,7 +4,7 @@ import Preloader from "../../common/preloader/Preloader";
 import StatusProfile from "./StatusProfile/StatusProfile";
 import {unfollow} from "../../../redux/users-reducer";
 import ProfileDataForm from "./ProfileDataForm";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 const ProfileInfo = (props) => {
     console.log(props)
@@ -42,7 +42,7 @@ const ProfileInfo = (props) => {
                 <img src={props.profile.photos.large || props.photo} alt=""/>
             </div>
 
-            {props.ownerId ?
+            {props.id == props.authorizedUserId ?
             <div>
                 <input type="file" name="myImage" onChange={onChangeFile}/>
             </div> :
@@ -63,6 +63,7 @@ const ProfileInfo = (props) => {
 }
 const ProfileData = (props) => {
     return <div>
+        {/*{!props.ownerId &&  <Redirect to={'/login'}/>}*/}
         {props.ownerId && <button onClick={props.setStateEditMode}>Edit</button>}
         <div><b>Full name:</b>{props.profile.fullName}</div>
         <div><b>Looking for a job:</b>{props.profile.lookingForAJob ? 'yes' : 'no'} </div>

@@ -6,7 +6,7 @@ const Navbar = (props) => {
 console.log(props)
     return <nav className={s.nav}>
         {props.navLinks.map((el) => {
-
+console.log(el.path)
 
             if(el.hasOwnProperty('path')){
                 return <div className={s.item} ><NavLink activeClassName={s.active} to={el.path}>{el.link}</NavLink></div>
