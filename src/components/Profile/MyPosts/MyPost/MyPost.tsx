@@ -1,7 +1,12 @@
 import React from "react";
 import s from "./MyPost.module.css";
-
-const MyPost = (props) => {
+import {postInfoType} from "../../../../redux/profile-reducer";
+type MyPostsProps = {
+    id: number,
+    massage: string,
+    like: number
+}
+const MyPost: React.FC<MyPostsProps> = (props) => {
 
     return <div className={s.item}>
 

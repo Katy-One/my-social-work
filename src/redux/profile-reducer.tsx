@@ -1,12 +1,12 @@
 import {ProfileAPI, UserAPI} from "../api/api";
 import {FormAction, stopSubmit} from 'redux-form';
 import {BasicThunkType, InferActionsType} from "./redux-store";
-type  postInfoType = {
+export type  postInfoType = {
     id: number,
     massage: string,
     like: number
 }
-type contactType = {
+export type contactType = {
     facebook: string
     website: string
     vk: string
@@ -21,7 +21,6 @@ export  type PhotosType = {
     large: string | null
 }
 export  type  profileType = {
-
     aboutMe: string,
     lookingForAJob: boolean,
     lookingForAJobDescription: string,
@@ -51,8 +50,9 @@ let initialState = {
     ] as Array<postInfoType>,
     profile: null as null | profileType,
     status: '',
-    newPostText: '',
-    id: ''
+    posts: '',
+    id: '',
+    // newPostText:'rrr'
 }
 type  InitialStateType = typeof initialState
 
@@ -74,10 +74,11 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 
             }
         case 'updateNewTextPost':
-
+debugger
             return {
                 ...state,
-                newPostText: action.nextText
+
+                // newPostText: action.nextText
             }
         case 'SET_USER_PROFILE':
 

@@ -2,11 +2,11 @@ import {InferActionsType} from "./redux-store";
 
 let updateNewMessagePost = 'updateNewMessagePost';
 let addMessage = 'ADD-Message';
-type MessageType = {
+export type MessageType = {
     id: number,
     message: string
 }
-type NameType = {
+export type NameType = {
     name: string,
     id: number
 
@@ -50,7 +50,7 @@ let initialState = {
     ] as Array<NameType>,
 
 }
-type initialStateType = typeof initialState
+export type initialStateType = typeof initialState
 type ActionsType = InferActionsType<typeof actions>
 export const actions = {
     addMessageActionCreator: (text: string, id: number) => ({type: addMessage, id: id, text} as const)

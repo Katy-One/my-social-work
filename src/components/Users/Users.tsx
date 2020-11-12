@@ -6,6 +6,7 @@ import Pagination from "../common/Pagination/Paginations";
 import {UserType} from "../../redux/users-reducer";
 import User from "./User";
 
+
 type PropsType = {
 
     totalUsersCount: number
@@ -31,42 +32,6 @@ let Users: React.FC<PropsType> = ({setCurrentPage, currentPage, totalUsersCount,
             {
                 users.map((el) => <User key={el.id} user={el} followingInProgress={followingInProgress} unfollowing={unfollowing}
                                following={following}/>
-                    // <div>
-                    //     <div className={s.left}>
-                    //         <span>{el.id}</span>
-                    //         <div>
-                    //             <NavLink to={'/profile/' + el.id}>
-                    //                 <img
-                    //                     src={el.photos.small !== null ? el.photos.small : 'https://www.kodefork.com/static/users/images/user.png'}
-                    //                     alt=""/>
-                    //             </NavLink>
-                    //         </div>
-                    //         <div>
-                    //             {el.followed
-                    //                 ? <button disabled={followingInProgress.some(id => id == el.id)}
-                    //                           onClick={() => {
-                    //                               unfollowing(el.id)
-                    //                           }}>unfollow</button>
-                    //                 : <button disabled={followingInProgress.some(id => id == el.id)}
-                    //                           onClick={() => {
-                    //                               following(el.id)
-                    //                           }}>follow</button>}
-                    //
-                    //         </div>
-                    //     </div>
-                    //     <div className={s.right}>
-                    //         <div>
-                    //             <div>{el.name}</div>
-                    //             <div>{el.status}</div>
-                    //         </div>
-                    //         <div>
-                    //             <div>{"el.locations.city"}</div>
-                    //             <div>{"el.locations.country"}</div>
-                    //         </div>
-                    //
-                    //
-                    //     </div>
-                    // </div>
                 )
             }
             <button onClick={() => {

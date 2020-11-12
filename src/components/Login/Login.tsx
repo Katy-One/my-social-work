@@ -87,5 +87,5 @@ let mapStateToProps = (state:  AppStateType):  MapStatePropsType  => ({
     isAuth: state.auth.isAuth,
     // login: state.auth.login
 })
-export default compose(connect<MapStatePropsType, MapDispatchType, {}, AppStateType>(mapStateToProps, {login}), withRouter) (Login)
+export default compose<React.ComponentType>(connect<MapStatePropsType, MapDispatchType, {}, AppStateType>(mapStateToProps, {login}), withRouter) (Login)
 

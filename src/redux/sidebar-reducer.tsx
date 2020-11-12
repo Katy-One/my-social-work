@@ -1,3 +1,7 @@
+
+
+type  initialStateType = typeof initialState
+
 let initialState =[
     {
         link: 'Profile',

@@ -1,9 +1,15 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import s from './Header.module.css';
 import {NavLink, Redirect} from "react-router-dom";
+export  type PropsType={
+    isAuth:boolean
+    login: string | null
 
-const Header = (props) => {
-
+}
+export  type DespatchType={
+    logout:()=> void
+}
+const Header: React.FC<PropsType & DespatchType> = (props) => {
     return <header className={s.header}>
         {!props.isAuth &&  <Redirect to={'/login'}/>}
         <img

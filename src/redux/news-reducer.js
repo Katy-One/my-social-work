@@ -26,8 +26,6 @@ let initialState = {
     ],
     active: 0
 }
-
-
 const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case addnews:
@@ -35,45 +33,19 @@ const newsReducer = (state = initialState, action) => {
             let arr = state.allNews.filter((user) => {
                 return user.id !== userForRemoveId;
             })
-
             return {
                 ...state,
                 allNews: arr
-
             }
         case ACTIVE:
-
             return {
                 ...state,
                 active: action.active
-
             }
-
         default :
             return state
     }
 }
-
 export default newsReducer
-export const addNewsActionCreator = (id) => {
-
-    return {
-        type: addnews,
-        id: id
-    }
-};
-export const addActive = (id) => {
-
-    return {
-        type: ACTIVE,
-        active: id
-    }
-};
-
-// export const UpdateNewPostActionCreator = (text) => {
-//
-//    return {
-//       type: updateNewTextPost,
-//       nextText: text
-//    }
-// };
+export const addNewsActionCreator = (id) => {return {type: addnews, id: id}};
+export const addActive = (id) => {return {type: ACTIVE, active: id}};
