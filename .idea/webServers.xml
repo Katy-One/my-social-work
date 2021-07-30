@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="e91179bf-3d31-4fc8-981b-7f767a526b7a" name="test" url="http://it-hive.net">
+      <webServer id="e91179bf-3d31-4fc8-981b-7f767a526b7a" name="test (project level)" url="http://it-hive.net">
         <fileTransfer host="it-hive.net" port="2121" rootFolder="/test.it-hive.net/react-practic-Katy">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
