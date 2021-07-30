@@ -20,6 +20,8 @@ type ProfileInfoType ={
   //  authorizedUserId: number
     ownerId:boolean
     status: string,
+    ownerId2:any,
+    authorizedUserId: number | null
     // posts: string,
   //  id: number,
 }
@@ -36,6 +38,7 @@ const ProfileInfo: React.FC<ProfileInfoType> = (props) => {
     let onChangeFile = (e:ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         if (e.target.files && e.target.files.length) {
+            console.log(e.target.files[0])
             props.setPhotoApi(e.target.files[0])
         }
     }
@@ -50,18 +53,18 @@ const ProfileInfo: React.FC<ProfileInfoType> = (props) => {
     }
     return (
         <div>
-
+            <NavLink  to='/users'>user</NavLink>
             <div className={s.avatar}>
                 <img src={props.profile.photos.large || ''} alt=""/>
             </div>
 
-            {/*{props.id == props.authorizedUserId ?*/}
-            {/*<div>*/}
-            {/*    <input type="file" name="myImage" onChange={onChangeFile}/>*/}
-            {/*</div> :*/}
-            {/*    <NavLink to={'/dialogs/' + props.id} onClick={()=> {setState(true)}} className={s.dialog} activeClassName={s.active}>Message</NavLink>*/}
+            {!props.ownerId && props.profile.userId == props.authorizedUserId &&
+            <div>
+                <input type="file" name="myImage" onChange={onChangeFile}/>
+            </div>
+                // vLink to={'/dialogs/' + props.id} onClick={()=> {setState(true)}} className={s.dialog} activeClassName={s.active}>Message</NavLink>
 
-            {/*}*/}
+            }
 
             <StatusProfile status={props.status} updateStatus={props.updateStatus}/>
             {editMode ? <ProfileDataForm
@@ -70,6 +73,7 @@ const ProfileInfo: React.FC<ProfileInfoType> = (props) => {
                     profile={props.profile}
                     onSubmit={onSubmitForm}/> :
                 <ProfileData ownerId={props.ownerId}
+                             authorizedUserId={props.authorizedUserId}
                              setStateEditMode={() => {
                                     setStateEditMode(true)}}
                              profile={props.profile}/>}
@@ -82,11 +86,12 @@ type ProfileDataType ={
     ownerId:boolean
     setStateEditMode:()=> void
     profile: profileType
+    authorizedUserId: number | null
 }
 const ProfileData: React.FC<ProfileDataType> = (props) => {
     return <div>
         {/*{!props.ownerId &&  <Redirect to={'/login'}/>}*/}
-        {props.ownerId && <button onClick={props.setStateEditMode}>Edit</button>}
+        {props.profile.userId == props.authorizedUserId && <button onClick={props.setStateEditMode}>Edit</button>}
         <div><b>Full name:</b>{props.profile.fullName}</div>
         <div><b>Looking for a job:</b>{props.profile.lookingForAJob ? 'yes' : 'no'} </div>
         {props.profile.lookingForAJob &&

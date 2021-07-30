@@ -3,7 +3,6 @@ import './App.css';
 import {Route, withRouter} from "react-router-dom";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import NewsContainer from "./components/News/NewsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {connect} from "react-redux";
@@ -12,6 +11,7 @@ import {initialzeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/Preloader";
 import {withSuspense} from "./hoc/WithSuspense";
 import {AppStateType} from "./redux/redux-store";
+import {UsersPage} from "./components/Users/UsersContainer";
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const  DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 type DispatchPropsType ={
@@ -41,7 +41,7 @@ class App extends React.Component<DispatchPropsType & MapPropsType> {
                     <Route path='/profile/:userId?' render={()=><SuspendProfile/>}/>
                     <Route path='/dialogs/:id?' render={() => <SuspendDialogs/>}/>
                     <Route path='/news' render={() => <NewsContainer/>}/>
-                    <Route  path='/users' render={() => <UsersContainer title={"jjjjj"}/>}/>
+                    <Route  path='/users' render={() => <UsersPage title={"Users"}/>}/>
                     <Route path='/login' render={() => <Login/>}/>
 
                 </div>

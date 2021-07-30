@@ -26,13 +26,16 @@ type MeResponseType = {
 }
 type LoginResponseType = {}
 export const UserAPI = {
-    getUsers(currentPage: number, pageSize:number) {
-        return instance.get<UsersResponseType>(`users?page=${currentPage}&count=${pageSize}`)
+
+    getUsers(currentPage: number, pageSize:number, term: string = "", friend: null | boolean = null) {
+
+        return instance.get<UsersResponseType>(`users?page=${currentPage}&count=${pageSize}&term=${term}` +  (friend=== null ?'':`&friend=${friend}`))
             .then(response => {
                 return response.data
             })
     },
     follow(usersId: number) {
+        debugger
         return instance.post<ResponseType>(`follow/${usersId}`).then(res => res.data)
     },
     unfollow(usersId: number) {

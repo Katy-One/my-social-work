@@ -53,6 +53,7 @@ class ProfileContainer extends React.Component<PropsType> {
         this.changeUserId()
     }
     componentDidUpdate(prevProps: PropsType, prevState: PropsType) {
+        console.log(this.props.match.params.userId)
         if (this.props.match.params.userId != prevProps.match.params.userId) {
             this.changeUserId()
         }
@@ -70,6 +71,7 @@ class ProfileContainer extends React.Component<PropsType> {
             <div>
                 <Profile  {...this.props}
                           ownerId={!this.props.match.params.userId}
+                          ownerId2={this.props.match.params.userId}
                           profile={this.props.profile}
                           status={this.props.status}
                           updateStatus={this.props.updateStatus}

@@ -30,7 +30,7 @@ const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case addnews:
             const userForRemoveId = action.id
-            let arr = state.allNews.filter((user) => {
+            let arr = state.allNews.filter((user) => {;""
                 return user.id !== userForRemoveId;
             })
             return {

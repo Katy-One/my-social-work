@@ -7,8 +7,9 @@ type ProfileProps ={
     setPhotoApi: (file: File)=> void
     saveProfile: (profile: profileType) => Promise<any>
     updateStatus:(status1:string)=>void
-    //authorizedUserId: number
+    authorizedUserId: number | null
     ownerId:boolean
+    ownerId2:any,
     status: string,
 
 }
@@ -19,13 +20,14 @@ console.log(props)
     return  <div >
       <ProfileInfo saveProfile={props.saveProfile}
                    ownerId={props.ownerId}
+                 ownerId2={props.ownerId2}
                    setPhotoApi={props.setPhotoApi}
                    profile={props.profile}
                    status={props.status}
                    updateStatus={props.updateStatus}
                     // id={props.match.params.userId}
                     // getUsersProfile={props.getUsersProfile}
-                    // authorizedUserId={props.authorizedUserId}
+                   authorizedUserId={props.authorizedUserId}
 
         />
       <MyPostsContainer/>
